@@ -1,0 +1,396 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&display=swap");
+
+:root {
+  font-family: "DM Sans", "Noto Sans KR", sans-serif;
+  color: #202a24;
+  background: #f5f7f2;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  --green: #2e684d;
+  --muted: #748078;
+  --line: #e5e9e3;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 82% 9%, rgb(222 235 220 / 58%), transparent 29rem),
+    #f5f7f2;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.app-shell {
+  width: min(100% - 40px, 760px);
+  margin: 0 auto;
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 86px;
+  border-bottom: 1px solid rgb(32 42 36 / 8%);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: #25372d;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: -0.06em;
+  text-decoration: none;
+}
+
+.brand-mark {
+  display: grid;
+  width: 29px;
+  height: 29px;
+  place-items: center;
+  border-radius: 9px;
+  background: var(--green);
+  color: white;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.header-note {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.hero {
+  padding: 78px 0 42px;
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0 0 17px;
+  color: var(--green);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(32px, 6vw, 46px);
+  font-weight: 700;
+  letter-spacing: -0.075em;
+  line-height: 1.36;
+}
+
+.hero-copy {
+  margin: 17px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.planner {
+  padding: 31px;
+  border: 1px solid rgb(39 62 47 / 7%);
+  border-radius: 19px;
+  background: rgb(255 255 255 / 90%);
+  box-shadow: 0 20px 55px rgb(34 58 42 / 7%);
+}
+
+.location-field {
+  position: relative;
+  padding-left: 27px;
+}
+
+.location-dot {
+  position: absolute;
+  top: 37px;
+  left: 1px;
+  width: 11px;
+  height: 11px;
+  border: 2px solid white;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px var(--green);
+}
+
+.destination-dot {
+  background: #e48d62;
+  box-shadow: 0 0 0 2px #e48d62;
+}
+
+.origin-dot {
+  background: var(--green);
+}
+
+.route-connector {
+  width: 1px;
+  height: 22px;
+  margin: 5px 0 5px 6px;
+  border-left: 1px dashed #b6c4b8;
+}
+
+.search-form label {
+  display: block;
+  margin-bottom: 10px;
+  color: #536057;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.input-row {
+  display: flex;
+  gap: 9px;
+}
+
+.input-row input {
+  width: 100%;
+  min-width: 0;
+  height: 48px;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  outline: none;
+  background: #fbfcfa;
+  color: #202a24;
+  font-size: 14px;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.input-row input::placeholder {
+  color: #a4ada6;
+}
+
+.input-row input:focus {
+  border-color: #75a187;
+  box-shadow: 0 0 0 3px rgb(46 104 77 / 10%);
+}
+
+.search-button {
+  flex: 0 0 70px;
+  border: 1px solid #dfe7df;
+  border-radius: 9px;
+  background: #f1f5ef;
+  color: #315a42;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  transition: background 150ms ease;
+}
+
+.search-button:hover {
+  background: #e5eee4;
+}
+
+.search-button:disabled {
+  cursor: wait;
+  opacity: 0.6;
+}
+
+.field-status,
+.route-status {
+  min-height: 18px;
+  margin: 7px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.search-results {
+  display: grid;
+  gap: 7px;
+}
+
+.result-option {
+  width: 100%;
+  padding: 11px 12px;
+  border: 1px solid #e8ece7;
+  border-radius: 8px;
+  background: white;
+  color: #39463d;
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 1.55;
+  text-align: left;
+  transition: border-color 150ms ease, background 150ms ease;
+}
+
+.result-option:hover,
+.result-option:focus-visible {
+  border-color: #9ab6a0;
+  outline: none;
+  background: #f7faf6;
+}
+
+.measure-button {
+  display: flex;
+  width: 100%;
+  min-height: 53px;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 20px;
+  border: 0;
+  border-radius: 9px;
+  background: var(--green);
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background 150ms ease, transform 150ms ease;
+}
+
+.measure-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  background: #25583f;
+}
+
+.measure-button:disabled {
+  background: #aab9ad;
+  cursor: not-allowed;
+}
+
+.measure-button span {
+  font-size: 19px;
+}
+
+.route-status {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.route-result {
+  margin-top: 14px;
+  padding: 21px 19px 17px;
+  border: 1px solid #e7ece6;
+  border-radius: 12px;
+  background: #f8faf7;
+}
+
+.result-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.result-icon {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border-radius: 11px;
+  background: #e8f0e7;
+  color: var(--green);
+  font-size: 22px;
+}
+
+.result-label {
+  margin: 0 0 3px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.distance-value {
+  margin: 0;
+  color: #263a2e;
+  font-size: 27px;
+  font-weight: 700;
+  letter-spacing: -0.055em;
+}
+
+.duration-value {
+  margin: 13px 0 0;
+  color: #667269;
+  font-size: 13px;
+}
+
+.map-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 17px;
+  color: var(--green);
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.map-link:hover {
+  text-decoration: underline;
+}
+
+.site-footer {
+  padding: 27px 0 35px;
+  color: #89928b;
+  font-size: 11px;
+  line-height: 1.8;
+  text-align: center;
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+.site-footer a {
+  color: #66786a;
+}
+
+.footer-note {
+  margin-top: 3px !important;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+@media (max-width: 560px) {
+  .app-shell {
+    width: min(100% - 28px, 460px);
+  }
+
+  .site-header {
+    min-height: 68px;
+  }
+
+  .header-note {
+    max-width: 145px;
+    font-size: 11px;
+    text-align: right;
+  }
+
+  .hero {
+    padding: 57px 0 31px;
+  }
+
+  .hero-copy {
+    max-width: 280px;
+    margin: 13px auto 0;
+    font-size: 13px;
+  }
+
+  .planner {
+    padding: 22px 18px;
+    border-radius: 15px;
+  }
+
+  .search-button {
+    flex-basis: 60px;
+  }
+}
