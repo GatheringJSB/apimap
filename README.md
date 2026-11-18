@@ -10,6 +10,8 @@
 
 - 장소 검색: [OpenStreetMap Nominatim](https://nominatim.openstreetmap.org/)
 - 자동차 경로: [OSRM demo server](https://router.project-osrm.org/)
-- 지도: [OpenStreetMap](https://www.openstreetmap.org/)
+- 지도 타일: [OpenStreetMap](https://www.openstreetmap.org/) · 지도 표시: [Leaflet](https://leafletjs.com/)
 
 장소 검색은 입력할 때마다 자동 요청하지 않고 사용자가 검색 버튼을 눌렀을 때만 실행됩니다. 브라우저 내 요청을 순차화해 검색 요청 간격을 둡니다. 무료 공개 서비스이므로 이용 정책, 사용량 제한 및 가용성에 따라 응답이 달라질 수 있습니다.
+
+경로가 계산되면 결과 아래에 지도가 표시됩니다. 지도 위의 `크게 보기` 버튼으로 확대할 수 있으며, 경로 지도 타일은 OpenStreetMap 공개 서버에서 불러옵니다.

@@ -11,7 +11,13 @@
     <title>길이음 — 거리 측정</title>
     <link rel="preconnect" href="https://nominatim.openstreetmap.org" />
     <link rel="preconnect" href="https://router.project-osrm.org" />
+    <link rel="preconnect" href="https://tile.openstreetmap.org" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
     <link rel="stylesheet" href="./styles.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
     <script src="./app.js" defer></script>
   </head>
   <body>
@@ -100,9 +106,23 @@
               <p id="distance-value" class="distance-value"></p>
             </div>
           </div>
-          <a id="map-link" class="map-link" target="_blank" rel="noopener noreferrer">
-            지도에서 보기 <span aria-hidden="true">↗</span>
-          </a>
+          <div class="map-preview">
+            <div
+              id="route-map"
+              class="route-map"
+              role="img"
+              aria-label="출발지에서 도착지까지 자동차 경로 지도"
+            ></div>
+            <button
+              id="expand-map"
+              class="expand-map"
+              type="button"
+              aria-haspopup="dialog"
+              aria-label="지도를 크게 보기"
+            >
+              크게 보기 <span aria-hidden="true">⤢</span>
+            </button>
+          </div>
           <p id="duration-value" class="duration-value"></p>
         </section>
       </section>
@@ -111,11 +131,32 @@
         <p>
           검색 데이터 ©
           <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a>
-          기여자 · 이동 경로는
+          기여자 · 지도는
+          <a href="https://leafletjs.com/" target="_blank" rel="noopener noreferrer">Leaflet</a> 제공 · 이동 경로는
           <a href="https://project-osrm.org/" target="_blank" rel="noopener noreferrer">OSRM</a> 제공
         </p>
         <p class="footer-note">장소 검색은 직접 검색 버튼을 눌렀을 때만 요청됩니다.</p>
       </footer>
     </main>
+
+    <dialog id="map-dialog" class="map-dialog" aria-label="경로 지도 크게 보기">
+      <div class="map-dialog-header">
+        <p>경로 지도</p>
+        <button
+          id="close-map"
+          class="close-map"
+          type="button"
+          aria-label="지도 닫기"
+        >
+          닫기 <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div
+        id="expanded-route-map"
+        class="route-map expanded-route-map"
+        role="img"
+        aria-label="출발지에서 도착지까지 자동차 경로 지도"
+      ></div>
+    </dialog>
   </body>
 </html>
